@@ -1,0 +1,13 @@
+Console.Write("Qual a base?: ");
+double baseRetangulo = double.Parse(Console.ReadLine());
+Console.Write("Qual a altura?: ");
+double alturaRetangulo = double.Parse(Console.ReadLine());
+
+double calculoDaArea = baseRetangulo * alturaRetangulo;
+Console.WriteLine("Valor da Área do retângulo é: " + calculoDaArea.ToString("F4").Replace(",","."));
+
+double calculoDoPerimetro = 2 * (baseRetangulo + alturaRetangulo);
+Console.WriteLine("Valor do perímetro do retângulo é: " + calculoDoPerimetro.ToString("F4").Replace(",", "."));
+
+double calculoDiagonal = Math.Sqrt(Math.Pow(baseRetangulo, 2) + Math.Pow(alturaRetangulo, 2));
+Console.WriteLine("Valor da diagonal do retângulo é: " + calculoDiagonal.ToString("F4").Replace(",", "."));

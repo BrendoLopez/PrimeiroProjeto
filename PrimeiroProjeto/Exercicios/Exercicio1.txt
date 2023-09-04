@@ -1,0 +1,15 @@
+// Exercicio simples de pegar o comprimento e largura do terreno e calcular tudo.
+Console.Write("Digite o comprimento do terreno: ");
+double comprimento = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture); ;
+Console.Write("Digite a largura do terreno: ");
+double largura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+double valorMetroQuadrado = 200.00;
+Console.WriteLine($"Comprimento: {comprimento}m Largura: {largura}m Preço do metro quadrado: {valorMetroQuadrado.ToString("C2", new CultureInfo("pt-BR"))}");
+
+
+double areaDoTerreno = comprimento * largura;
+string areaFormatada = areaDoTerreno.ToString("F2").Replace(",", ".");
+Console.WriteLine("Área total do terreno: " + areaFormatada + "m²");
+
+double valorDoTerreno = areaDoTerreno * valorMetroQuadrado;
+Console.WriteLine("Valor total do terreno: R$" + valorDoTerreno.ToString("C2", new CultureInfo("pt-BR")));
