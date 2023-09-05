@@ -7,20 +7,15 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            Console.Write("Qual o seu nome?: ");
-            string nomeUsuarioUm = Console.ReadLine();
-            Console.Write("Qual a sua idade?: ");
-            int idadeUsuarioUm = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Olá, {nomeUsuarioUm}!");
+            double primeiraNota = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double segundaNota = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double notaFinal = primeiraNota + segundaNota;
 
-            Console.Write("Qual o seu nome?: ");
-            string nomeUsuarioDois = Console.ReadLine();
-            Console.Write("Qual a sua idade?: ");
-            int idadeUsuarioDois = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Olá, {nomeUsuarioDois}!");
-
-            double mediaIdadeUsuarios = (double)(idadeUsuarioUm + idadeUsuarioDois) / 2.0;
-            Console.WriteLine(mediaIdadeUsuarios.ToString("F1", CultureInfo.InvariantCulture));
+            Console.WriteLine("NOTA FINAL = " + notaFinal.ToString("F1", CultureInfo.InvariantCulture));
+            if (notaFinal < 60.0)
+            {
+                Console.WriteLine("REPROVADO");
+            }
         }
     }
 }
