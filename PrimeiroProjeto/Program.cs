@@ -7,14 +7,10 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            double primeiraNota = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double segundaNota = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            double notaFinal = primeiraNota + segundaNota;
-
-            Console.WriteLine("NOTA FINAL = " + notaFinal.ToString("F1", CultureInfo.InvariantCulture));
-            if (notaFinal < 60.0)
-            {
-                Console.WriteLine("REPROVADO");
+            int X = int.Parse(Console.ReadLine());
+            int Y = int.Parse(Console.ReadLine());
+            while (true) {
+                
             }
         }
     }
