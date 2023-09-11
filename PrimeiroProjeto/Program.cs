@@ -7,20 +7,25 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            Console.Write("Qual o seu nome?: ");
-            string nomeUsuarioUm = Console.ReadLine();
-            Console.Write("Qual a sua idade?: ");
-            int idadeUsuarioUm = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Olá, {nomeUsuarioUm}!");
-
-            Console.Write("Qual o seu nome?: ");
-            string nomeUsuarioDois = Console.ReadLine();
-            Console.Write("Qual a sua idade?: ");
-            int idadeUsuarioDois = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Olá, {nomeUsuarioDois}!");
-
-            double mediaIdadeUsuarios = (double)(idadeUsuarioUm + idadeUsuarioDois) / 2.0;
-            Console.WriteLine(mediaIdadeUsuarios.ToString("F1", CultureInfo.InvariantCulture));
+            double idadeUsuario, soma, media;
+            int contagem;
+            idadeUsuario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            soma = 0.0;
+            contagem = 0;
+            while (idadeUsuario >= 0)
+            {
+                soma = soma + idadeUsuario;
+                contagem++;
+                idadeUsuario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            }
+            if (contagem == 0)
+            {
+                Console.WriteLine("Impossivel calcular");
+            } else
+            {
+                media = soma / contagem;
+                Console.WriteLine(media.ToString("F2", CultureInfo.InvariantCulture));
+            }
         }
     }
 }
