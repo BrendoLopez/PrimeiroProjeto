@@ -7,20 +7,19 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            Console.Write("Qual o seu nome?: ");
-            string nomeUsuarioUm = Console.ReadLine();
-            Console.Write("Qual a sua idade?: ");
-            int idadeUsuarioUm = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Olá, {nomeUsuarioUm}!");
+            string[] codigoLinhaUm = Console.ReadLine().Split(' ');
+            string[] codigoLinhaDois = Console.ReadLine().Split(' ');
 
-            Console.Write("Qual o seu nome?: ");
-            string nomeUsuarioDois = Console.ReadLine();
-            Console.Write("Qual a sua idade?: ");
-            int idadeUsuarioDois = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Olá, {nomeUsuarioDois}!");
+            int codigoPecaUm = int.Parse(codigoLinhaUm[0]);
+            int quantidadeUm = int.Parse(codigoLinhaUm[1]);
+            double valorUnitarioUm = double.Parse(codigoLinhaUm[2], CultureInfo.InvariantCulture);
 
-            double mediaIdadeUsuarios = (double)(idadeUsuarioUm + idadeUsuarioDois) / 2.0;
-            Console.WriteLine(mediaIdadeUsuarios.ToString("F1", CultureInfo.InvariantCulture));
+            int codigoPecaDois = int.Parse(codigoLinhaDois[0]);
+            int quantidadeDois = int.Parse(codigoLinhaDois[1]);
+            double valorUnitarioDois = double.Parse(codigoLinhaDois[2], CultureInfo.InvariantCulture);
+
+            double valorPagar = (quantidadeUm * valorUnitarioUm) + (quantidadeDois * valorUnitarioDois);
+            Console.WriteLine("VALOR A PAGAR: R$ " + valorPagar.ToString("F2").Replace(",","."), CultureInfo.InvariantCulture);
         }
     }
 }
