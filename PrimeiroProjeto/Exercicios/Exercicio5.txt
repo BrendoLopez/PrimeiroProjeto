@@ -8,6 +8,7 @@ namespace curso
     {
         static void Main(string[] args)
         {
+            Console.Write("Digite as 4 notas do aluno: ");
             double nota1, nota2, nota3, nota4;
             string[] vet = Console.ReadLine().Split(' ');
             nota1 = double.Parse(vet[0], CultureInfo.InvariantCulture);
@@ -35,6 +36,7 @@ namespace curso
             }
             else if (mediaNotaAluno >= 5.0 && mediaNotaAluno <= 6.9)
             {
+                Console.Write("Digite a nota do Exame: ");
                 double notaExame = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                 Console.WriteLine("Media: " + mediaNotaAluno.ToString("F1", CultureInfo.InvariantCulture));
                 Console.WriteLine("Aluno em exame.");
