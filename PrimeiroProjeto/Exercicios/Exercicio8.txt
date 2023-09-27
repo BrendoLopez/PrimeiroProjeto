@@ -1,0 +1,30 @@
+            int tipoCombustivel = int.Parse(Console.ReadLine());
+            int somaAlcool = 0;
+            int somaGasolina = 0;
+            int somaDiesel = 0;
+
+            int alcool = 1;
+            int gasolina = 2;
+            int diesel = 3;
+            int fim = 4;
+
+            while (tipoCombustivel != fim)
+            {
+                if (tipoCombustivel == alcool)
+                {
+                    somaAlcool++;
+                }
+                else if (tipoCombustivel == gasolina)
+                {
+                    somaGasolina++;
+                }
+                else if (tipoCombustivel == diesel)
+                {
+                    somaDiesel++;
+                }
+                tipoCombustivel = int.Parse(Console.ReadLine());
+            }
+            Console.WriteLine("MUITO OBRIGADO");
+            Console.WriteLine($"Alcool: {somaAlcool}");
+            Console.WriteLine($"Gasolina: {somaGasolina}");
+            Console.WriteLine($"Diesel: {somaDiesel}");

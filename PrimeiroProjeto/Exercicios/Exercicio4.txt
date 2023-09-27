@@ -1,59 +1,21 @@
 using System;
+using System.Globalization;
 
-namespace ConsoleMenu
+namespace curso
 {
     class Program
     {
-        static int selectedOption = 0;
-        static string[] options = { "Opção 1", "Opção 2", "Opção 3" };
-
         static void Main(string[] args)
         {
-            ConsoleKeyInfo keyInfo;
+            double primeiraNota = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double segundaNota = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double notaFinal = primeiraNota + segundaNota;
 
-            do
+            Console.WriteLine("NOTA FINAL = " + notaFinal.ToString("F1", CultureInfo.InvariantCulture));
+            if (notaFinal < 60.0)
             {
-                Console.Clear(); // Limpa o console.
-                DrawMenu();
-                keyInfo = Console.ReadKey();
-
-                // Muda a opção selecionada baseado na tecla pressionada.
-                if (keyInfo.Key == ConsoleKey.UpArrow && selectedOption > 0)
-                {
-                    selectedOption--;
-                } else if (keyInfo.Key == ConsoleKey.DownArrow && selectedOption < options.Length - 1)
-                {
-                    selectedOption++;
-                } else if (keyInfo.Key == ConsoleKey.Enter)
-                {
-                    HandleOption();
-                }
-
-            } while (keyInfo.Key != ConsoleKey.Escape); // Pressione ESC para sair.
-        }
-
-        static void DrawMenu()
-        {
-            Console.WriteLine("###########");
-            for (int i = 0; i < options.Length; i++)
-            {
-                if (i == selectedOption)
-                {
-                    Console.WriteLine("## > " + options[i] + " ##");
-                } else
-                {
-                    Console.WriteLine("##   " + options[i] + " ##");
-                }
+                Console.WriteLine("REPROVADO");
             }
-            Console.WriteLine("###########");
-        }
-
-        static void HandleOption()
-        {
-            Console.Clear();
-            Console.WriteLine("Você escolheu " + options[selectedOption]);
-            Console.WriteLine("Pressione qualquer tecla para retornar ao menu.");
-            Console.ReadKey();
         }
     }
 }

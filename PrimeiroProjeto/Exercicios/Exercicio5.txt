@@ -1,5 +1,4 @@
 using System;
-using System.Drawing;
 using System.Globalization;
 
 namespace curso
@@ -8,51 +7,24 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite as 4 notas do aluno: ");
-            double nota1, nota2, nota3, nota4;
-            string[] vet = Console.ReadLine().Split(' ');
-            nota1 = double.Parse(vet[0], CultureInfo.InvariantCulture);
-            nota2 = double.Parse(vet[1], CultureInfo.InvariantCulture);
-            nota3 = double.Parse(vet[2], CultureInfo.InvariantCulture);
-            nota4 = double.Parse(vet[3], CultureInfo.InvariantCulture);
+            String[] vet = Console.ReadLine().Split(' ');
 
-            double peso1 = 2.0;
-            double peso2 = 3.0;
-            double peso3 = 4.0;
-            double peso4 = 1.0;
+            double a = double.Parse(vet[0], CultureInfo.InvariantCulture);
+            double b = double.Parse(vet[1], CultureInfo.InvariantCulture);
+            double c = double.Parse(vet[2], CultureInfo.InvariantCulture);
 
-            double mediaNotaAluno = (nota1 * peso1 + nota2 * peso2 + nota3 * peso3 + nota4 * peso4) / (peso1 + peso2 + peso3 + peso4);
-            double valorArredondado = Math.Floor(mediaNotaAluno * 10) / 10;
+            double delta = Math.Pow(b, 2.0) - 4 * a * c;
 
-            if (mediaNotaAluno >= 7.0)
+            if (a == 0 || delta < 0.0)
             {
-                Console.WriteLine("Media: " + mediaNotaAluno.ToString("F1", CultureInfo.InvariantCulture));
-                Console.WriteLine("Aluno aprovado.");
+                Console.WriteLine("Impossivel calcular");
             }
-            else if (mediaNotaAluno < 5.0)
+            else
             {
-                Console.WriteLine("Media: " + valorArredondado.ToString("F1", CultureInfo.InvariantCulture));
-                Console.WriteLine("Aluno reprovado.");
-            }
-            else if (mediaNotaAluno >= 5.0 && mediaNotaAluno <= 6.9)
-            {
-                Console.Write("Digite a nota do Exame: ");
-                double notaExame = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                Console.WriteLine("Media: " + mediaNotaAluno.ToString("F1", CultureInfo.InvariantCulture));
-                Console.WriteLine("Aluno em exame.");
-                double mediaExameCalculo = (notaExame + mediaNotaAluno) / 2.0;
-                Console.WriteLine("Nota do exame: " + notaExame.ToString("F1", CultureInfo.InvariantCulture));
-                if (mediaExameCalculo >= 5.0)
-                {
-                    Console.WriteLine("Aluno aprovado.");
-
-                }
-                else if (mediaExameCalculo < 5.0)
-                {
-                    Console.WriteLine("Aluno reprovado.");
-
-                }
-                Console.WriteLine("Media final: " + mediaExameCalculo.ToString("F1", CultureInfo.InvariantCulture));
+                double r1 = (-b + Math.Sqrt(delta)) / (2.0 * a);
+                double r2 = (-b - Math.Sqrt(delta)) / (2.0 * a);
+                Console.WriteLine("R1 = " + r1.ToString("F5", CultureInfo.InvariantCulture));
+                Console.WriteLine("R2 = " + r2.ToString("F5", CultureInfo.InvariantCulture));
             }
         }
     }

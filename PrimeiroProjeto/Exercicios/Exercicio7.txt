@@ -7,26 +7,37 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            int A, B, C;
-            string[] vet = Console.ReadLine().Split(' ');
+            double notaAluno1 = -1;
+            double notaAluno2 = -1;
 
-            A = int.Parse(vet[0]);
-            B = int.Parse(vet[1]);
-            C = int.Parse(vet[2]);
-
-            int[] valores = { A, B, C };
-
-            Array.Sort(valores);
-
-            foreach (var vetores in valores)
+            while (true)
             {
-                Console.WriteLine(vetores);
-            }
+                notaAluno1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            Console.WriteLine(" ");
-            Console.WriteLine($"{A}");
-            Console.WriteLine($"{B}");
-            Console.WriteLine($"{C}");
+                if (notaAluno1 >= 0 && notaAluno1 <= 10)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("nota invalida");
+                }
+            }
+            while (true)
+            {
+                notaAluno2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                if (notaAluno2 >= 0 && notaAluno2 <= 10)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("nota invalida");
+                }
+            }
+            double somaMedia = (notaAluno1 + notaAluno2) / 2;
+            Console.WriteLine("media = " + somaMedia.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
