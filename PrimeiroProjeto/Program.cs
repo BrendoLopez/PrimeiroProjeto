@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrimeiroProjeto;
+using System;
 using System.Globalization;
 
 namespace curso
@@ -7,28 +8,33 @@ namespace curso
     {
         static void Main(string[] args)
         {
-            int N = int.Parse(Console.ReadLine());
-            int X;
-            int[] vet;
-            vet = new int[N];
-            string[] S = Console.ReadLine().Split(' ');
+            Produto produto = new Produto();
 
-            for (int i = 0; i < N; i++)
-            {
-                vet[i] = int.Parse(S[i]);
-            }
-            //for (int i = 0; i < 1; i++)
-            //{
-            //    X = int.Parse(Console.ReadLine());
-            //    vet[i] = X;
-            //}
-            for (int i = 0; i < N; i++)
-            {
-                if (vet[i] < 0)
-                {
-                    Console.WriteLine(vet[i]);
-                }
-            }
+            Console.WriteLine("Entre os dados do produto:");
+            Console.Write("Nome: ");
+            produto.Nome = Console.ReadLine();
+
+            Console.Write("Preço: ");
+            produto.Preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.Write("Quantidade no estoque: ");
+            produto.Quantidade = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Dados do produto: {produto.Nome}, $ {produto.Preco.ToString("F2", CultureInfo.InvariantCulture)}, " +
+            $"{produto.Quantidade} unidades," + " Total: $ " + produto.ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture));
+
+            Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
+
+            produto.AdicionarProdutos(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine($"Dados do produto: {produto.Nome}, $ {produto.Preco.ToString("F2", CultureInfo.InvariantCulture)}, " +
+            $"{produto.Quantidade} unidades," + " Total: $ " + produto.ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture));
+
+            Console.Write("Digite o número de produtos a ser removidos do estoque: ");
+            produto.RemoverProdutos(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine($"Dados do produto: {produto.Nome}, $ {produto.Preco.ToString("F2", CultureInfo.InvariantCulture)}, " +
+            $"{produto.Quantidade} unidades," + " Total: $ " + produto.ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
