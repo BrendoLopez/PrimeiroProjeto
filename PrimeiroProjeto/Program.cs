@@ -8,27 +8,27 @@ namespace curso
         static void Main(string[] args)
         {
             int N = int.Parse(Console.ReadLine());
-            string[] mesmaLinha = Console.ReadLine().Split(' ');
+            int X;
+            int[] vet;
+            vet = new int[N];
+            string[] S = Console.ReadLine().Split(' ');
 
-            double[] vetor = new double[N];
             for (int i = 0; i < N; i++)
             {
-                vetor[i] = double.Parse(mesmaLinha[i], CultureInfo.InvariantCulture);
+                vet[i] = int.Parse(S[i]);
             }
-
-            double maiorNumero = vetor[0];
-            double posicaoMaior = 0;
-
-            for (int i = 1; i < N; i++)
+            //for (int i = 0; i < 1; i++)
+            //{
+            //    X = int.Parse(Console.ReadLine());
+            //    vet[i] = X;
+            //}
+            for (int i = 0; i < N; i++)
             {
-                if (vetor[i] > maiorNumero)
+                if (vet[i] < 0)
                 {
-                    maiorNumero = vetor[i];
-                    posicaoMaior = i;
+                    Console.WriteLine(vet[i]);
                 }
             }
-            Console.WriteLine(maiorNumero.ToString("F1", CultureInfo.InvariantCulture));
-            Console.WriteLine(posicaoMaior);
         }
     }
 }
