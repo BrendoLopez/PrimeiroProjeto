@@ -1,7 +1,7 @@
-﻿using PrimeiroProjeto;
+﻿using PrimeiroProjeto.Exercicios;
 using System.Globalization;
 
-namespace PrimeiroProjeto
+namespace PrimeiroProjeto.Exercicios
 {
     internal class Retangulo
     {

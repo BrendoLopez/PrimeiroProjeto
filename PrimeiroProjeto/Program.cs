@@ -7,7 +7,7 @@ namespace curso
     {
         static void Main(string[] args)
         {
-           
+            
         }
     }
 }
