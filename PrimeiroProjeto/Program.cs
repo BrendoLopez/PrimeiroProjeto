@@ -1,5 +1,4 @@
 ﻿using PrimeiroProjeto;
-using System;
 using System.Globalization;
 
 namespace curso
@@ -8,7 +7,7 @@ namespace curso
     {
         static void Main(string[] args)
         {
-
+           
         }
     }
 }

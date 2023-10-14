@@ -33,9 +33,9 @@ namespace PrimeiroProjeto
 
 namespace curso
 {
-    class Exercicio1
+    class ProdutoExercicio
     {
-        static void Exercicio(string[] args)
+        static void Produto(string[] args)
         {
             Produto produto = new Produto();
 
