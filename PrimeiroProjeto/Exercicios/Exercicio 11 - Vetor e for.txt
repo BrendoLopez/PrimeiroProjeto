@@ -1,0 +1,29 @@
+using System;
+using System.Globalization;
+
+namespace curso
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = int.Parse(Console.ReadLine());
+            double media = 0.0;
+            double porcentagem;
+
+            string[] vetor = new string[N];
+
+            for (int i = 0; i < N; i++)
+            {
+                vetor[i] = Console.ReadLine();
+                media += double.Parse(vetor[i].Split(' ')[2]);
+            }
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine(vetor[i]);
+            }
+            double resultadoMedia = media / N;
+            Console.WriteLine("Altura média: " + resultadoMedia.ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}
