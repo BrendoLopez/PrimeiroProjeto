@@ -1,0 +1,49 @@
+﻿namespace Exercicio13
+{
+    class Pessoa
+    {
+        public string Nome;
+        public int Idade;
+    }
+
+    class Program
+    {
+        static void Exercicio13(string[] args)
+        {
+            Pessoa pessoaUm, pessoaDois;
+            // A classe pessoa foi criada em outro arquivo.
+            pessoaUm = new Pessoa();
+
+            Console.WriteLine("Dados da primeira pessoa:");
+            Console.Write("Nome: ");
+            pessoaUm.Nome = Console.ReadLine();
+            Console.Write("Idade: ");
+            pessoaUm.Idade = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Nome: {pessoaUm.Nome}");
+            Console.WriteLine($"Nome: {pessoaUm.Idade}");
+
+            pessoaDois = new Pessoa();
+
+            Console.WriteLine("Dados da segunda pessoa:");
+            Console.Write("Nome: ");
+            pessoaDois.Nome = Console.ReadLine();
+            Console.Write("Idade: ");
+            pessoaDois.Idade = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Nome: {pessoaDois.Nome}");
+            Console.WriteLine($"Nome: {pessoaDois.Idade}");
+
+            if (pessoaUm.Idade > pessoaDois.Idade)
+            {
+                Console.WriteLine($"Pessoa mais velha: {pessoaUm.Nome}");
+            }
+            else if (pessoaUm.Idade == pessoaDois.Idade)
+            {
+                Console.WriteLine("Idades iguais.");
+            }
+            else
+            {
+                Console.WriteLine($"Pessoa mais velha: {pessoaDois.Nome}");
+            }
+        }
+    }
+}
