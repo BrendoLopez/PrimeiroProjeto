@@ -1,53 +1,76 @@
-﻿using PrimeiroProjeto.Exercicios;
-using System.Globalization;
+﻿using System.Globalization;
 
-namespace PrimeiroProjeto.Exercicios
+namespace PrimeiroProjeto
 {
-    public class Funcionario
+    internal class Funcionario
     {
-        public string Nome;
-        public double SalarioBruto;
-        public double Imposto;
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public double Salario { get; set; }
 
-        public double SalarioLiquido()
+        public Funcionario(int id, string nome, double salario)
         {
-            return SalarioBruto - Imposto;
+            Id = id;
+            Nome = nome;
+            Salario = salario;
         }
 
-        public void AumentarSalario(double porcentagem)
+        public void IncrementarSalario(double porcentagem)
         {
-            SalarioBruto = SalarioBruto + SalarioBruto * porcentagem / 100.0;
+            Salario = ((Salario * porcentagem) / 100) + Salario;
         }
 
         public override string ToString()
         {
-            return Nome + ", $ " + SalarioLiquido().ToString("F2", CultureInfo.InvariantCulture);
+            return "Id: " + Id + ", Nome: " + Nome + ", Salário: " + Salario.ToString("F2", CultureInfo.InvariantCulture);
         }
     }
-}
-namespace curso
-{
-    class FuncionarioExercicio
+
+    namespace ExercicioFuncionario
     {
-        static void Funcionario(string[] args)
+        class Exec
         {
-            Funcionario funcionario = new Funcionario();
+            static void FuncionarioExercicio(string[] args)
+            {
+                Console.Write("Quantos funcionários serão cadastrados? ");
+                int quantidadeDeFuncionariosParaCadastrar = int.Parse(Console.ReadLine());
+                List<Funcionario> list = new List<Funcionario>();
 
-            Console.Write("Nome: ");
-            funcionario.Nome = Console.ReadLine();
+                for (int i = 1; i <= quantidadeDeFuncionariosParaCadastrar; i++)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"Funcionário #{i}");
+                    Console.Write("Id: ");
+                    int id = int.Parse(Console.ReadLine());
+                    Console.Write("Nome: ");
+                    string nome = Console.ReadLine();
+                    Console.Write("Salário: ");
+                    double salario = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    list.Add(new Funcionario(id, nome, salario));
+                }
+                Console.WriteLine();
+                Console.Write("Entre com o ID do funcionário que terá o salário aumentado: ");
+                int entreComId = int.Parse(Console.ReadLine());
 
-            Console.Write("Salário bruto: ");
-            funcionario.SalarioBruto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Funcionario empregado = list.Find(x => x.Id == entreComId);
 
-            Console.Write("Imposto: ");
-            funcionario.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-
-            Console.WriteLine("Funcionário: " + funcionario);
-
-            Console.Write("Digite a porcentagem para aumentar o salário: ");
-            funcionario.AumentarSalario(double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture));
-
-            Console.WriteLine("Dados atualizados: " + funcionario);
+                if (empregado != null)
+                {
+                    Console.Write("Digite a porcentagem: ");
+                    double porcentagem = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                    empregado.IncrementarSalario(porcentagem);
+                }
+                else
+                {
+                    Console.WriteLine("O ID do funcionário não existe");
+                }
+                Console.WriteLine();
+                Console.WriteLine("Lista atualizada de funcionários:");
+                foreach (Funcionario obj in list)
+                {
+                    Console.WriteLine(obj);
+                }
+            }
         }
     }
 }
