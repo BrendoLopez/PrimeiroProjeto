@@ -1,13 +1,11 @@
 ﻿using PrimeiroProjeto;
-using System.Globalization;
 
-namespace curso
+namespace curso;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            
-        }
+
     }
 }
