@@ -1,0 +1,64 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string A = Console.ReadLine();
+        string B = Console.ReadLine();
+        string C = Console.ReadLine();
+
+        if (A == "vertebrado")
+        {
+            if (B == "ave" || B == "mamifero")
+            {
+                if (B == "ave" && C == "carnivoro")
+                {
+                    Console.WriteLine("aguia");
+                }
+
+                else if (B == "ave" && C == "onivoro")
+                {
+                    Console.WriteLine("pomba");
+                }
+
+                else if (B == "mamifero" && C == "onivoro")
+                {
+                    Console.WriteLine("homem");
+                }
+
+                else if (B == "mamifero" && C == "herbivoro")
+                {
+                    Console.WriteLine("vaca");
+                }
+            }
+        }
+
+
+        if (A == "invertebrado")
+        {
+            if (B == "inseto" || B == "anelideo")
+            {
+                if (B == "inseto" && C == "hematofago")
+                {
+                    Console.WriteLine("pulga");
+                }
+
+                else if (B == "inseto" && C == "herbivoro")
+                {
+                    Console.WriteLine("lagarta");
+                }
+
+                else if (B == "anelideo" && C == "hematofago")
+                {
+                    Console.WriteLine("sanguessuga");
+                }
+
+                else if (B == "anelideo" && C == "onivoro")
+                {
+                    Console.WriteLine("minhoca");
+                }
+            }
+        }
+    }
+}
