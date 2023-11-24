@@ -10,27 +10,20 @@ class Program
 
         do
         {
-            Console.Clear(); // Limpa o console para redesenhar o menu
-
-            // Exibe as opções do menu com destaque na opção selecionada
+            Console.Clear();
             for (int i = 0; i < menuOptions.Length; i++)
             {
                 if (i == selectedIndex)
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkYellow; // Cor do texto destacado
-                    Console.BackgroundColor = ConsoleColor.DarkBlue; // Cor de fundo destacada
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
                 }
-
-                Console.WriteLine($"  << {menuOptions[i]} >> ");
-
-                // Resetar as cores para as configurações padrão
+                Console.WriteLine($"  << {menuOptions[i]} >>  ");
                 Console.ResetColor();
             }
 
-            // Aguarda a entrada do usuário
             ConsoleKeyInfo keyInfo = Console.ReadKey();
 
-            // Atualiza o índice selecionado com base na tecla pressionada
             switch (keyInfo.Key)
             {
                 case ConsoleKey.UpArrow:
@@ -41,31 +34,74 @@ class Program
                 selectedIndex = (selectedIndex + 1) % menuOptions.Length;
                 break;
 
+
+                //Lógica do jogo
                 case ConsoleKey.Enter:
+
                 if (selectedIndex == 0)
                 {
-                    Console.Clear(); // Limpa o console antes de começar o jogo
-                    Console.WriteLine("O jogo está começando!");
-                        // Adicione aqui a lógica do seu jogo
-                        Console.WriteLine("Teste");
-                        // Pode ser uma chamada para uma função que contém a lógica do jogo
-                        // ou você pode incluir a lógica diretamente aqui
-                        Console.ReadKey(); // Aguarda uma tecla antes de retornar ao menu
+                    Console.Clear();
+                    Console.Write("O jogo está começando! \nMas antes de começarmos, nos diga o seu Nickname: ");
+                    string nickNamePlayer = Console.ReadLine();
+
+                    bool opcaoEscolhida = false;
+                    string[] temaJogo = { "Futebol", "Filmes", "Séries", "Jogos Online", "Guerras" };
+                    int selecionarTemaJogo = 0;
+                    do
+                    {
+                        Console.Clear();
+                        Console.WriteLine($"{nickNamePlayer}, escolha o tema do jogo abaixo.");
+                        Console.WriteLine();
+
+                        for (int i = 0; i < temaJogo.Length; i++)
+                        {
+                            if (i == selecionarTemaJogo)
+                            {
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                            }
+                            Console.WriteLine($"  << {temaJogo[i]} >>  ");
+                            Console.ResetColor();
+                        }
+
+                        ConsoleKeyInfo teste = Console.ReadKey();
+                        switch (teste.Key)
+                        {
+                            case ConsoleKey.UpArrow:
+                            selecionarTemaJogo = (selecionarTemaJogo - 1 + temaJogo.Length) % temaJogo.Length;
+                            break;
+
+                            case ConsoleKey.DownArrow:
+                            selecionarTemaJogo = (selecionarTemaJogo + 1) % temaJogo.Length;
+                            break;
+
+                            case ConsoleKey.Enter:
+                            opcaoEscolhida = true;
+                            if (selecionarTemaJogo == 0)
+                            {
+                                Console.Clear();
+                                Console.WriteLine($"{nickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
+                                Console.WriteLine("Para este tema, temos a seguinte questão: QUAL JOGADOR DE FUTEBOL MARCOU 23 GOLS EM UM ÚNICO JOGO, COM APENAS 13 ANOS? ");
+                                Console.Write("Resposta: ");
+                            }
+                            continue;
+                        }
+                    } while (!opcaoEscolhida);
+                    Console.ReadKey();
                 }
                 else if (selectedIndex == 1)
                 {
-                    Console.Clear(); // Limpa o console antes de exibir as instruções
+                    Console.Clear();
                     Console.WriteLine("Instruções do jogo...");
-                        Console.WriteLine("");
-                        Console.WriteLine("É um jogo bem simples, onde você tem apenas 10 tentativas para acertar.");
-                        Console.WriteLine("As palavras serão aleatórias e haverá uma dica inicial, boa sorte!");
-                        Console.ReadKey(); // Aguarda uma tecla antes de retornar ao menu
+                    Console.WriteLine("");
+                    Console.WriteLine("É um jogo bem simples, onde você tem apenas 10 tentativas para acertar.");
+                    Console.WriteLine("As palavras serão aleatórias e haverá uma dica inicial, boa sorte!");
+                    Console.ReadKey();
                 }
                 else if (selectedIndex == 2)
                 {
-                        Console.WriteLine("Você saiu do jogo! \nAté a próxima.");
-                        // Adicione aqui a lógica de saída do programa se o usuário selecionar "Exit"
-                        return;
+                    Console.WriteLine("Você saiu do jogo! \nAté a próxima.");
+                    return;
                 }
                 break;
             }
