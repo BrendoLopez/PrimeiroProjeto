@@ -34,7 +34,6 @@ class Program
                 selectedIndex = (selectedIndex + 1) % menuOptions.Length;
                 break;
 
-
                 //Lógica do jogo
                 case ConsoleKey.Enter:
 
@@ -83,6 +82,13 @@ class Program
                                 Console.WriteLine($"{nickNamePlayer}, você escolheu o tema: <<{temaJogo[0]}>>");
                                 Console.WriteLine("Para este tema, temos a seguinte questão: QUAL JOGADOR DE FUTEBOL MARCOU 23 GOLS EM UM ÚNICO JOGO, COM APENAS 13 ANOS? ");
                                 Console.Write("Resposta: ");
+                                string resposta = Console.ReadLine();
+
+                                while (resposta != temaJogo[0])
+                                {
+                                    Console.WriteLine("Você errou!");
+                                    resposta = Console.ReadLine();
+                                }
                             }
                             continue;
                         }
