@@ -50,6 +50,10 @@
     static void Main()
     {
         int erros = 6;
-        DesenharForca(erros);
+
+        for (int i = 0; i <= erros; i++)
+        {
+            DesenharForca(i);
+        }
     }
 }
